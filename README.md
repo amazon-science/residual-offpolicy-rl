@@ -69,7 +69,7 @@ python -c "import torch; print(torch.cuda.is_available())"
 First we need to train the base BC policy. Taking TwoArmCoffee as an example:
 
 ```
-python resfit/lerobot/scripts/train_dexmg \
+python resfit/lerobot/scripts/train_bc_dexmg.py \
     --dataset ankile/dexmg-two-arm-coffee \
     --policy act \
     --steps 200000 \
@@ -91,7 +91,7 @@ After training finished, put the `wandb_project_name/run_id` into the correspond
 Next we can train our residual RL policy:
 
 ```
-python resfit/rl_finetuning/scripts/train_residual_td3 \
+python resfit/rl_finetuning/scripts/train_residual_td3.py \
     --config-name=residual_td3_coffee_config \
     algo.prefetch_batches=4 \
     algo.n_step=5 \
